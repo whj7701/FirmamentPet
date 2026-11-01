@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FirmamentPet 使用说明</title>
+<style>
+  body{background:#14171d;color:#dfe3ea;
+       font-family:"Microsoft YaHei UI","Microsoft YaHei",system-ui,sans-serif;
+       line-height:1.8;max-width:880px;margin:0 auto;padding:44px 28px 90px;}
+  h1{color:#f2e6c8;border-bottom:1px solid #2b3140;padding-bottom:14px;font-size:26px}
+  h2{color:#c8a45c;margin-top:40px;font-size:19px;border-left:3px solid #c8a45c;padding-left:10px}
+  h3,h4{color:#e7d9b4;margin-top:26px}
+  a{color:#8fc7ff;text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{background:#1d222b;padding:2px 6px;border-radius:5px;color:#f0c987;font-size:90%}
+  pre{background:#1b1f27;border:1px solid #262b36;border-radius:10px;padding:14px 16px;overflow:auto}
+  pre code{background:none;padding:0;color:#d7dce6}
+  table{border-collapse:collapse;width:100%;margin:16px 0}
+  th,td{border:1px solid #2b3140;padding:8px 12px;text-align:left}
+  th{background:#1d222b;color:#e7d9b4}
+  blockquote{border-left:3px solid #3a4252;margin:12px 0;padding:6px 14px;color:#9aa2b1}
+  hr{border:none;border-top:1px solid #262b36;margin:28px 0}
+  ul,ol{padding-left:24px}
+</style></head>
+<body>
+<h1>FirmamentPet 使用说明</h1>
+<p>一个会自己走动、会说话、能自己决定动作的桌面宠物。支持从网上下载形象、接入你自己的大模型 API。</p>
+<hr />
+<h2>一、安装与启动</h2>
+<ol>
+<li>把 <strong><code>FirmamentPet.exe</code></strong> 和 <strong><code>default_skins</code></strong> 文件夹放在<strong>同一个目录</strong>（缺一不可）；</li>
+<li>双击 <code>FirmamentPet.exe</code> 即可运行，无需安装；</li>
+<li>首次启动会把 <code>default_skins</code> 里的 9 个自带形象复制到：</li>
+</ol>
+<p><code>%APPDATA%\FirmamentPet\skins\</code></p>
+<p>之后新增的形象也都放在这里。</p>
+<p><strong>系统要求</strong>：Windows 10 / 11（64 位）。本程序是 Windows 专用，<strong>不能直接在 Linux / macOS 上运行</strong>。</p>
+<p>发行包内文件：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FirmamentPet.exe</code></td>
+<td>主程序</td>
+</tr>
+<tr>
+<td><code>default_skins\</code></td>
+<td>9 个自带形象，首次启动自动安装</td>
+</tr>
+<tr>
+<td><code>使用说明.html</code></td>
+<td>本说明（浏览器打开，排版最好）</td>
+</tr>
+<tr>
+<td><code>使用说明.txt</code> / <code>.md</code></td>
+<td>纯文本 / 源文件</td>
+</tr>
+<tr>
+<td><code>清理旧托盘缓存.cmd</code></td>
+<td>从旧版升级后，清掉通知区里的旧名字残留（见第六节）</td>
+</tr>
+<tr>
+<td><code>firmamentpet.ico</code></td>
+<td>图标源文件</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>想开机自启</strong></p>
+<p>右键桌宠 → <strong>智能 → 开机自启</strong>，勾上即可；取消勾选就关闭。<br />
+程序会把当前 exe 的完整路径写进<br />
+<code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</code>，<br />
+换成别的目录/版本后重新勾选一次即可。</p>
+<p>也可以手动：把 exe 的快捷方式放进<br />
+<code>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code>（Win+R 输入 <code>shell:startup</code> 打开）。<br />
+懒得动手就让 AI 帮你弄：对它说「帮我把 FirmamentPet 设置成开机自启」。</p>
+</blockquote>
+<hr />
+<h2>二、基本操作</h2>
+<blockquote>
+<p>本版本<strong>没有托盘图标</strong>，全部功能都在桌宠的<strong>右键菜单</strong>里（右键点桌宠即可）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>单击</strong></td>
+<td>打招呼 / 说一句话</td>
+</tr>
+<tr>
+<td><strong>双击</strong></td>
+<td>播放「大招」或跳一下</td>
+</tr>
+<tr>
+<td><strong>拖拽</strong></td>
+<td>抓起来扔出去，会物理弹跳几下再站稳</td>
+</tr>
+<tr>
+<td><strong>右键</strong></td>
+<td>打开功能菜单</td>
+</tr>
+<tr>
+<td>菜单 → 喂食</td>
+<td>好感度 +1、饱食度 +1</td>
+</tr>
+<tr>
+<td>菜单 → 状态</td>
+<td>查看好感度 / 饱食度</td>
+</tr>
+</tbody>
+</table>
+<p>菜单主要结构：</p>
+<pre><code>💎 VIP 高级看盘版 ▸   切换监控指数 / 涨跌幅周期 / 股票面板
+外观                桌宠大小缩放 / 窗口始终置顶 / 切换形象…
+伙伴                再叫一只伙伴 / 喂食 / 状态
+行为                移动方式（固定·沿边·乱走）/ 动作（招手·跳·开心·生气·发呆·工作·坐下·睡觉）
+智能                AI 聊天 / AI 设置 / 主动说话 ▸
+❌ 退出桌宠
+</code></pre>
+<hr />
+<h2>三、添加形象（重点）</h2>
+<h3>方式一：从链接导入（推荐）</h3>
+<ol>
+<li>打开形象站：<strong>https://petdex.dev/</strong></li>
+<li>找到喜欢的形象，复制它详情页的链接，例如：</li>
+</ol>
+<p><code>https://petdex.dev/pets/robin-singsong</code></p>
+<ol start="3">
+<li>右键桌宠 → <strong>切换形象…</strong> → 底部 <strong>「从链接导入…」</strong></li>
+<li>粘贴链接 → 确定，等几秒（会自动抓图、切片、生成动作）；</li>
+<li>导入完成后在列表里选中它 → <strong>「应用」</strong>。</li>
+</ol>
+<blockquote>
+<p>导入需要联网。程序会先访问 petdex.dev，不通时自动改用镜像站。<br />
+只支持标准版式的精灵表；不支持的会提示原因。</p>
+</blockquote>
+<h3>方式二：安装本地形象包（.zip）</h3>
+<p>右键 → 切换形象… → <strong>「安装形象包(zip)…」</strong>，选择 zip 即可。</p>
+<h3>管理已有形象</h3>
+<p>在「切换形象…」窗口里：</p>
+<ul>
+<li>顶部 <strong>搜索框</strong>：按名字 / 简介 / ID 过滤；</li>
+<li><strong>最近使用</strong> 自动置顶；</li>
+<li><strong>右键卡片</strong>：重命名… / 打开所在目录 / 删除这个形象…（正在使用中的不能删）。</li>
+</ul>
+<hr />
+<h2>四、接入自己的 AI（可选）</h2>
+<p>不配 API 也能用：说话会走本地台词库，动作走本地随机策略。配了之后，它就会"看场合说话"。</p>
+<h3>配置方法</h3>
+<p>右键桌宠 → <strong>AI 设置（接入自己的 API）</strong>，填入：</p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接口地址</td>
+<td>OpenAI 兼容的 <code>base_url</code></td>
+<td><code>https://apihub.agnes-ai.com/v1</code></td>
+</tr>
+<tr>
+<td>API Key</td>
+<td>你自己的密钥</td>
+<td><code>sk-...</code></td>
+</tr>
+<tr>
+<td>模型</td>
+<td>模型名</td>
+<td><code>agnes-3.0-flash</code></td>
+</tr>
+</tbody>
+</table>
+<p>保存后写入 <code>%APPDATA%\FirmamentPet\ai_ayaka.json</code>，只存在本机，不会上传。</p>
+<h3>接上之后能得到什么</h3>
+<ul>
+<li><strong>AI 聊天</strong>（菜单 → AI 聊天）：对话框，按当前形象的人设回答；</li>
+<li><strong>主动说话</strong>（菜单 → 主动说话 ▸）：</li>
+<li>开关、<strong>现在说一句</strong>；</li>
+<li><strong>间隔</strong>：随机 25–40 分钟 / 15–25 / 45–70 / 每 30 分钟 / 每 1 小时 / 2 小时 / 4 小时 / <strong>自定义…</strong>（1–1440 分钟）；</li>
+<li><strong>静默时段</strong>：23:00–08:00 / 22:00–08:00 / 00:00–09:00 / 不静音；</li>
+<li><strong>看见屏幕</strong>：开启后会把屏幕截图（缩到 560px）发给<strong>你自己的接口</strong>，让它知道你正在玩游戏还是写代码；</li>
+<li><strong>AI 行为</strong>（菜单 → 🧠 AI 行为 ▸）：让模型决定"做什么"——坐下、打盹、招手、走过来、换地方……<br />
+  带动作台词；每 1–3.5 分钟想一次，累了会放慢。</li>
+</ul>
+<h3>费用与限流</h3>
+<p>每次调用都用<strong>你自己的额度</strong>。程序内置保护：</p>
+<ul>
+<li>全局最小请求间隔 20 秒；</li>
+<li>同时开多个形象时，只有"主实例"会调 API，其它实例照常走动但不花钱；</li>
+<li>接口报错或限流（429）时自动降级：说话用本地台词，动作走本地随机。</li>
+</ul>
+<hr />
+<h2>五、其他功能</h2>
+<ul>
+<li><strong>移动方式</strong>：固定不动 / 沿屏幕边缘 / 全屏乱走；</li>
+<li><strong>体力系统</strong>：走久了会累，自己停下歇一会儿，缓过来继续；</li>
+<li><strong>情绪互动</strong>：点击、拖拽、喂食都有反应和台词；</li>
+<li><strong>多开</strong>：菜单 →「再叫一只伙伴」，可同时养多只，会互相跟随；</li>
+<li><strong>股票面板</strong>：VIP 子菜单里开关，显示当日实时涨跌幅（纯展示，不构成投资建议）。</li>
+</ul>
+<hr />
+<h2>六、请作者喝杯奶茶（打赏）</h2>
+<p>右键桌宠 → <strong>「请作者喝杯奶茶 ☕」</strong>，会弹出说明窗口，里面放了微信 / 支付宝两个收款码。</p>
+<ul>
+<li><strong>完全自愿</strong>：打赏与不打赏，功能完全一样，没有任何限制；</li>
+<li>窗口里的码是静态图片，扫码金额随意；</li>
+<li>不想看就点「关闭」，不会影响桌宠的任何行为。</li>
+</ul>
+<h2>七、高级看盘版（VIP）激活</h2>
+<p><strong>免费版</strong>：可以正常养、互动、换形象、玩游戏 —— 但<strong>不显示实时指数</strong>（右下角 HUD 不出现，托盘提示「未激活」）。<br />
+<strong>高级看盘版</strong>：显示实时指数 HUD，解锁 A股 / 美股 / BTC 与秒级刷新（2s/5s/10s…）。</p>
+<p><strong>激活步骤</strong></p>
+<ol>
+<li>右键桌宠 → 菜单最上方 <strong>「🎫 激活高级看盘版（粘贴激活码）」</strong>；</li>
+<li>粘贴你的激活码 → 确定；</li>
+<li>提示激活成功后，菜单顶部会显示「已永久激活」。</li>
+</ol>
+<p><strong>还没有激活码？</strong></p>
+<blockquote>
+<p>需要高级看盘版激活码的，请前往<strong>抖音关注 <code>90314679138 天穹</code></strong>，详情见其<strong>置顶视频</strong>。</p>
+</blockquote>
+<p>激活状态记录在本机 <code>%APPDATA%\FirmamentPet\</code>，换机器需要重新激活；<br />
+同一个激活码与设备指纹绑定，重装系统后可能需要重新申请。</p>
+<h2>八、常见问题</h2>
+<p><strong>Q：双击 exe 没反应 / 闪退？</strong><br />
+A：确认 <code>default_skins</code> 和 exe 在同一目录；看 <code>%TEMP%\ayaka_crash.log</code> 有没有报错。</p>
+<p><strong>Q：通知区还显示旧名字（如「绫华 A股监控桌宠」）？</strong><br />
+A：这不是程序里的文字，而是 Windows 为<strong>同一个 exe 路径</strong>缓存的托盘条目。<br />
+双击发行包里的 <strong><code>清理旧托盘缓存.cmd</code></strong> 即可清除：</p>
+<ul>
+<li>它只做一件事：删掉<br />
+<code>HKEY_CURRENT_USER\Control Panel\NotifyIconSettings</code> 下与桌宠相关的缓存条目<br />
+  （提示文字、图标快照），然后重启一次资源管理器；</li>
+<li>不会动你的形象、配置、账号，也不会卸载软件；</li>
+<li>从旧版本升级上来的机器，建议<strong>运行一次</strong>；全新安装的机器不会出现该问题，无需运行。</li>
+</ul>
+<p><strong>Q：会不会很占 C 盘？</strong><br />
+A：本体约 115 MB，每个形象 3–10 MB（自带形象已压缩）。临时文件会在 1.5 小时后自动清理。</p>
+<p><strong>Q：会调用哪些数据？</strong><br />
+A：只在你开启「看见屏幕」时截图，且<strong>只发给你自己配置的接口</strong>；对话记忆存在本机<br />
+<code>%APPDATA%\FirmamentPet\brain_memory.json</code>（最多 30 条、7 天过期）。</p>
+<p><strong>Q：不开 AI 能用吗？</strong><br />
+A：能。所有互动、动作、形象切换都不依赖网络和 API。</p>
+<hr />
+<h2>九、卸载</h2>
+<ol>
+<li>右键桌宠 → 退出桌宠；</li>
+<li>删除程序目录（exe 与 <code>default_skins</code>）；</li>
+<li>删除数据目录 <code>%APPDATA%\FirmamentPet</code>；</li>
+<li>如设过开机自启，删除注册表项<br />
+<code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</code> 下的 <code>FirmamentPet</code>。</li>
+</ol>
+<hr />
+<h2>十、形象素材来源</h2>
+<p>形象均来自社区站点 <strong>https://petdex.dev/</strong>（作者各自保留权利），<br />
+程序本身只做本地播放，不上传、不再分发原始素材。</p>
+</body></html>

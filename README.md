@@ -2,6 +2,8 @@
 
 一只住在你桌面上的桌宠：会自己走动、会累、会跟你说话，也能陪你盯盘。
 
+**最新版 v1.0.1**　·　[⬇ 下载 Windows 版 (210 MB)](https://github.com/whj7701/FirmamentPet/releases/download/v1.0.1/FirmamentPet-v1.0.1.zip)　·　[更新日志](CHANGELOG.md)　·　[全部版本](https://github.com/whj7701/FirmamentPet/releases)
+
 ![桌宠](docs/img/pet.jpg)
 
 ## 它是什么
